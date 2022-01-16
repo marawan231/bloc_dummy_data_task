@@ -1,4 +1,4 @@
-# shop_app
+# dummy_data_task
 
 A new Flutter project.
 
