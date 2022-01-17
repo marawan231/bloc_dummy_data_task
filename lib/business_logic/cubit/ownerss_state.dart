@@ -5,6 +5,8 @@ abstract class OwnersState {}
 
 class OwnersInitial extends OwnersState {}
 
+class OwnersLoading extends OwnersState {}
+
 class OwnersLoaded extends OwnersState {
   final List<Owners> owners;
 

@@ -11,17 +11,18 @@ part 'ownerss_state.dart';
 class OwnersCubit extends Cubit<OwnersState> {
   final OwnersRepoistry ownersRepoistry;
 
-  late List<Owners> owners;
+  late List<Owners> owners = [];
   List<Owners> favouriteOwners = [];
 
   OwnersCubit(
     this.ownersRepoistry,
   ) : super(OwnersInitial());
-  List<Owners> getAllOwners() {
-    ownersRepoistry.getAllOwners().then((owners) {
-      emit(OwnersLoaded(owners));
 
+  List<Owners> getAllOwners() {
+    emit(OwnersLoading());
+    ownersRepoistry.getAllOwners().then((owners) {
       this.owners = owners;
+      emit(OwnersLoaded(owners));
     });
     return owners;
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_app/presentation/widgets/loading_indicator.dart';
 import '../../business_logic/cubit/owners_cubit.dart';
 import '../../constants/strings.dart';
 
@@ -32,6 +33,8 @@ class _OwnersScreenState extends State<OwnersScreen> {
       builder: (context, state) {
         if (state is OwnersLoaded) {
           allOwners = state.owners;
+        } else if (state is OwnersLoading) {
+          return const LoadingIndicator();
         }
         return buildLoadedWidget();
       },

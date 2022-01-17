@@ -68,12 +68,7 @@ class OwnerItem extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              leading: BlocBuilder<OwnersCubit, OwnersState>(
-                  buildWhen: (previous, current) {
-                return current is OwnerIsFavourite;
-              }, builder: (context, state) {
-                return buildFavouriteIconButtonWidget(context);
-              }),
+              leading: buildFavouriteIconButtonWidget(context),
               trailing: inFavouriteList
                   ? Container()
                   : IconButton(
